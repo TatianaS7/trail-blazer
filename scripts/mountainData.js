@@ -541,7 +541,6 @@ function main() {
 const selectElement = document.querySelector("#all-mountains"); //selects dropdown again to attach event listener
 
 function populateMountainDropdown() {
-    //const selectElement = document.querySelector("#all-mountains");
 
     for (const mountain of mountainsArray) {
 
@@ -555,14 +554,27 @@ function populateMountainDropdown() {
 }
 
 function returnMountainInfo() {
-    //const selectElement = document.querySelector("#all-mountains"); //selects dropdown
     const mountainInfo = document.querySelector("#mountainInfo"); //selects main container from HTML 
     const currentOption = selectElement.value; //turns value of the dropdown element into variable for comparison
 
  for (const mountain of mountainsArray) { //for of loop, loops through mountains array
     if (currentOption === mountain.name) { //compares value of current option to mountain name in object
-        mountainInfo.innerHTML = (` <img src = "images/${mountain.img}"> ${mountain.desc} The effort for this hike is ${mountain.effort}! <br><br>Latitude: ${mountain.coords.lat} <br>Longitude: ${mountain.coords.lng}`); //if they match, output corresponding data into HTML container
-    }                                
+        mountainInfo.innerHTML = (` <img src = "images/${mountain.img}"><br> ${mountain.desc} The effort for this hike is ${mountain.effort}! <br><br>Latitude: ${mountain.coords.lat} <br>Longitude: ${mountain.coords.lng}`); //if they match, output corresponding data into HTML container
+    }                           
 }  
 }
 selectElement.addEventListener("change", returnMountainInfo); //listens for change of value and calls function
+
+//Show All Mountains
+/*function showAllMountains() {
+    const button = document.querySelector("#show-all-mountains");
+    const mountainInfo = document.querySelector("#mountainInfo");
+    let allMountains = "";
+
+    for (const mountain of mountainsArray) {
+        allMountains += `${mountain.name}<br>`;
+    }
+    mountainInfo.innerHTML = allMountains;
+}
+button = document.querySelector("#show-all-mountains");
+button.addEventListener("click", showAllMountains);*/

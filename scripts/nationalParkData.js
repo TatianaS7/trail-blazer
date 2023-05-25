@@ -6866,16 +6866,18 @@ function main() {
     populateLocationDropdown();
     populateParkTypeDropdown();
 }
+
+//Show By Location
 function returnParkDataByLocation() {
     const selectElement = document.querySelector("#by-location"); //selects dropdown
     const parkInfo = document.querySelector("#parkInfo") //selects main container from HTML 
-    const currentOption = selectElement.value; //turns value of the dropdown element into variable for comparison
+    const selectedOption = selectElement.value; //turns value of the dropdown element into variable for comparison
     let introText = "";
     let output = "";
 
  for (const park of nationalParksArray) { //for of loop, loops through locations array
-    if (currentOption === park.State) { //compares value of current option to park state in object
-        introText = `The following parks are located in ${park.State}: <br><br>`
+    if (selectedOption === park.State) { //compares value of current option to park state in object
+        introText = `The following parks are located in ${park.State}: <br>`
         output +=  `${park.LocationName}<br>`; //if they match, output corresponding data into HTML container
     }                             
 }  
@@ -6884,10 +6886,51 @@ parkInfo.innerHTML = introText + output;
 selectElement = document.querySelector("#by-location"); //selects dropdown again to attach event listener
 selectElement.addEventListener("change", returnParkDataByLocation); //listens for change of value and calls function*/
 
+//Show By Park Type
+function returnParkDataByType() {
+    const selectedType = document.querySelector("#by-park-type");
+    const parkInfo = document.querySelector("#parkInfo") //selects main container from HTML 
+    const currentOption = selectedType.value; //turns value of the dropdown element into variable for comparison
+    let intro = "";
+    let parkOutput = "";
+
+    for (const park of nationalParksArray) {
+        if (park.LocationName.endsWith(currentOption)) { //switched from .includes because it returned if any part of the name matched
+            intro = `The ${currentOption}s are:<br>`;
+            parkOutput += `${park.LocationName}<br>`;
+    }   
+}
+parkInfo.innerHTML = intro + parkOutput; //if they match, output corresponding data into HTML container                         
+}
+selectedType = document.querySelector("#by-park-type");
+selectedType.addEventListener("change", returnParkDataByType); //listens for change of value and calls function*/
+
+//Show By Both
+/*function returnParkDataByLocationAndType() {
+    const selectedLocation = document.querySelector("#by-park-location");
+    const selectedParkType = document.querySelector("#by-park-type");
+
+    const parkInfo = document.querySelector("#parkInfo");
+    const currentLocation = selectedLocation.value;
+    const currentParkType = selectedParkType.value;
+
+    let textIntro = "";
+    let bothOutput = "";
+
+    for (const park of nationalParksArray) {
+        if (park.State === currentLocation && park.LocationName.includes(currentParkType)) {
+            textIntro = `The ${currentParkType}s in ${currentLocation} are:<br>`;
+            bothOutput += `${park.LocationName}<br>`;
+        }
+    }
+    parkInfo.innerHTML = textIntro + bothOutput;
+}
+selectedLocation.addEventListener("change", returnParkDataByLocationAndType);
+selectedParkType.addEventListener("change", returnParkDataByLocationAndType);
+*/
 
 //Show All Parks
 function showAllParks() {
-    const button = document.querySelector("#show-all-parks");
     const parkInfo = document.querySelector("#parkInfo");
     let allParks = "";
 
@@ -6896,5 +6939,5 @@ function showAllParks() {
     }
     parkInfo.innerHTML = allParks;
 }
-button = document.querySelector("#show-all-parks");
-button.addEventListener("click", showAllParks);
+showAllButton = document.querySelector("#show-all-parks");
+showAllButton.addEventListener("click", showAllParks);
