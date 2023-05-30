@@ -6869,19 +6869,24 @@ function main() {
 
 //Show By Location
 function returnParkDataByLocation() {
-    const selectElement = document.querySelector("#by-location"); //selects dropdown
-    const parkInfo = document.querySelector("#parkInfo") //selects main container from HTML 
-    const selectedOption = selectElement.value; //turns value of the dropdown element into variable for comparison
-    let introText = "";
-    let output = "";
+  const selectElement = document.querySelector("#by-location"); //selects dropdown
+  const parkInfo = document.querySelector("#parkInfo"); //selects main container from HTML
+  const selectedOption = selectElement.value; //turns value of the dropdown element into variable for comparison
+  let introText = "";
+  let output = "";
 
- for (const park of nationalParksArray) { //for of loop, loops through locations array
-    if (selectedOption === park.State) { //compares value of current option to park state in object
-        introText = `The following parks are located in ${park.State}: <br>`
-        output +=  `${park.LocationName}<br>`; //if they match, output corresponding data into HTML container
-    }                             
-}  
-parkInfo.innerHTML = introText + output;
+  for (const park of nationalParksArray) {
+    //for of loop, loops through locations array
+    if (selectedOption === park.State) {
+      //compares value of current option to park state in object
+      introText = `The following parks are located in ${park.State}: <br>`;
+      /*if (park.Visit) {
+        output += `<a href = "${park.Visit}" target = _blank >${park.LocationName}</a>`; //if they match, output corresponding data into HTML container
+      } else {*/
+      output += `${park.LocationName}<br>`; //if they match, output corresponding data into HTML container
+    }
+}
+  parkInfo.innerHTML = introText + output;
 }
 selectElement = document.querySelector("#by-location"); //selects dropdown again to attach event listener
 selectElement.addEventListener("change", returnParkDataByLocation); //listens for change of value and calls function*/
