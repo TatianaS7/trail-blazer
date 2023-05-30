@@ -11,7 +11,7 @@ Using HTML, CSS, and JavaScript, I built a website that helps a user find things
 ![HomePage](/images/home4.JPG)
 
 ### This is the National Parks Page
-![ParksPage] ()
+![ParksPage](/images/parks.JPG)
 
 ### This is the Mountains Page
 ![MountainsPage](/images/mountains.JPG)
