@@ -168,15 +168,22 @@ select {
 #mountainInfo, #parkInfo {
     margin: 30px;
     padding: 20px 30px 10px 50px;
-    display: flex;
-    flex-wrap: wrap;
     line-height: 40px;
     font-weight: 500;
 }
 
-#mountainInfo img {
-    margin-right: 30px;
+.card-text {
+    font-weight: 400;
 }
+
+.card img {
+    margin: 30px 0px 30px 30px;
+
+    max-width: 500px;
+}
+/*#mountainInfo img {
+    margin-right: 30px;
+}*/
 
 #show-all-parks {
     margin-left: 20px;

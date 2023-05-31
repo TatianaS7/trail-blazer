@@ -559,7 +559,7 @@ function returnMountainInfo() {
 
  for (const mountain of mountainsArray) { //for of loop, loops through mountains array
     if (currentOption === mountain.name) { //compares value of current option to mountain name in object
-        mountainInfo.innerHTML = (` <img src = "images/${mountain.img}"><br> ${mountain.desc} The effort for this hike is ${mountain.effort}! <br><br>Latitude: ${mountain.coords.lat} <br>Longitude: ${mountain.coords.lng}`); //if they match, output corresponding data into HTML container
+        mountainInfo.innerHTML = (`<div class = "card"> <img src = "images/${mountain.img}"> <div class = "card-body"> <p class = "card-text">${mountain.desc} The effort for this hike is ${mountain.effort}! <br><br>Latitude: ${mountain.coords.lat} <br>Longitude: ${mountain.coords.lng}</p></div></div>`); //if they match, output corresponding data into HTML container
     }                           
 }  
 }
