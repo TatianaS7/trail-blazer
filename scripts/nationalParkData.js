@@ -6877,32 +6877,39 @@ function returnParkDataByLocation() {
   for (const park of nationalParksArray) {
     //for of loop, loops through locations array
     if (selectedOption === park.State && typeof park.Phone == "string" && park.Visit) {
-        content += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+        content += `<div class = "card"> 
+        <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
         <div class = "card-body"> 
         <p class = "card-text">
         ${park.Phone}<br>
         ${park.Address}<br>
         ${park.City}, ${park.State} ${park.ZipCode}<br>
-        <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`; //if they match, output corresponding data into HTML container
+        <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+        </p></div></div><br>`; 
 
         } else if (selectedOption === park.State && typeof park.Phone == "string"){
-            content += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+            content += `<div class = "card"> 
+            <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
                 <div class = "card-body"> 
                 <p class = "card-text">
                 ${park.Phone}<br>
                 ${park.Address}<br>
-                ${park.City}, ${park.State} ${park.ZipCode}<br></p></div></div><br>`; //if they match, output corresponding data into HTML container
+                ${park.City}, ${park.State} ${park.ZipCode}
+                </p></div></div><br>`; 
 
         } else if (selectedOption === park.State && park.Visit){
-            content += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+            content += `<div class = "card"> 
+            <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
                 <div class = "card-body"> 
                 <p class = "card-text">
                 ${park.Address}<br>
                 ${park.City}, ${park.State} ${park.ZipCode}<br>
-                <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`; //if they match, output corresponding data into HTML container
+                <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                </p></div></div><br>`; 
        
         } else if (selectedOption === park.State) {
-            content += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+            content += `<div class = "card"> 
+            <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
                 <div class = "card-body"> 
                 <p class = "card-text">
                 ${park.Address}<br>
@@ -6927,34 +6934,54 @@ function returnParkDataByType() {
 
     for (const park of nationalParksArray) {
         if (park.LocationName.endsWith(currentOption) && typeof park.Phone == "string" && park.Visit) { //switched from .includes because it returned if any part of the name matched
-            parkOutput += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                            <div class = "card-body"> 
-                            <p class = "card-text">
+            parkOutput += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
                             ${park.Phone}<br>
                             ${park.Address}<br>
                             ${park.City}, ${park.State} ${park.ZipCode}<br>
-                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`;
+                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                        </p>
+                    </div>
+                </div>
+            <br>`;
     }   else if (park.LocationName.endsWith(currentOption) && typeof park.Phone == "string") {
-            parkOutput += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                            <div class = "card-body"> 
-                            <p class = "card-text">
+            parkOutput += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
                             ${park.Phone}<br>
                             ${park.Address}<br>
-                            ${park.City}, ${park.State} ${park.ZipCode}<br></p></div></div><br>`;
+                            ${park.City}, ${park.State} ${park.ZipCode}
+                        </p>
+                    </div>
+                </div>
+            <br>`;
     }   else if (park.LocationName.endsWith(currentOption) && park.Visit) {
-            parkOutput += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                            <div class = "card-body"> 
-                            <p class = "card-text">
+            parkOutput += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
                             ${park.Address}<br>
                             ${park.City}, ${park.State} ${park.ZipCode}<br></p></div><br>
-                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`;
+                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                        </p>
+                    </div>
+                </div>
+            <br>`;
         }
         else if (park.LocationName.endsWith(currentOption)) {
-            parkOutput += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                            <div class = "card-body"> 
-                            <p class = "card-text">
+            parkOutput += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
                             ${park.Address}<br>
-                            ${park.City}, ${park.State} ${park.ZipCode}<br></p></div></div><br>`;
+                            ${park.City}, ${park.State} ${park.ZipCode}
+                        </p>
+                    </div>
+                </div>
+            <br>`;
         }
 }
 parkInfo.innerHTML = parkOutput; //if they match, output corresponding data into HTML container                         
@@ -6971,16 +6998,27 @@ selectedType.addEventListener("change", returnParkDataByType); //listens for cha
     const currentLocation = selectedLocation.value;
     const currentParkType = selectedParkType.value;
 
-    let textIntro = "";
     let bothOutput = "";
 
-    for (const park of nationalParksArray) {
-        if (park.State === currentLocation && park.LocationName.includes(currentParkType)) {
-            textIntro = `The ${currentParkType}s in ${currentLocation} are:<br>`;
-            bothOutput += `${park.LocationName}<br>`;
+    const filteredLocation = nationalParksArray.filter(park => park.State === currentLocation);
+
+    for (const park of filteredLocation) {
+        if (park.LocationName.endsWith(currentParkType)) {
+            bothOutput += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
+                            ${park.Phone}<br>
+                            ${park.Address}<br>
+                            ${park.City}, ${park.State} ${park.ZipCode}<br>
+                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                        </p>
+                    </div>
+                </div>
+            <br>`;
         }
     }
-    parkInfo.innerHTML = textIntro + bothOutput;
+    parkInfo.innerHTML = bothOutput;
 }
 selectedLocation.addEventListener("change", returnParkDataByLocationAndType);
 selectedParkType.addEventListener("change", returnParkDataByLocationAndType);
@@ -6993,36 +7031,55 @@ function showAllParks() {
 
     for (const park of nationalParksArray) {
         if (typeof park.Phone == "string" && park.Visit) { 
-            allParks += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                <div class = "card-body"> 
-                <p class = "card-text">
-                ${park.Phone}<br>
-                ${park.Address}<br>
-                ${park.City}, ${park.State} ${park.ZipCode}<br>
-                <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`;
+            allParks += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
+                            ${park.Phone}<br>
+                            ${park.Address}<br>
+                            ${park.City}, ${park.State} ${park.ZipCode}<br>
+                            <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                        </p>
+                    </div>
+                </div>
+            <br>`;
 
     }   else if (typeof park.Phone == "string") {
-            allParks += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                <div class = "card-body"> 
-                <p class = "card-text">
-                ${park.Phone}<br>
-                ${park.Address}<br>
-                ${park.City}, ${park.State} ${park.ZipCode}</p></div></div><br>`;
+            allParks += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                    <div class = "card-body"> 
+                        <p class = "card-text">
+                            ${park.Phone}<br>
+                            ${park.Address}<br>
+                            ${park.City}, ${park.State} ${park.ZipCode}
+                        </p>
+                    </div>
+                </div>
+            <br>`;
 
     }   else if (park.Visit) {
-            allParks += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
-                <div class = "card-body"> 
-                <p class = "card-text">
-                ${park.Address}<br>
-                ${park.City}, ${park.State} ${park.ZipCode}<br>
-                <a href = "${park.Visit}" target = _blank>${park.Visit}</a> </p></div></div><br>`;
-
+            allParks += `<div class = "card"> 
+                <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+                        <div class = "card-body"> 
+                            <p class = "card-text">
+                                ${park.Address}<br>
+                                ${park.City}, ${park.State} ${park.ZipCode}<br>
+                                <a href = "${park.Visit}" target = _blank>${park.Visit}</a> 
+                            </p>
+                        </div>
+                    </div>
+                <br>`;
     }   else {
-            allParks += `<div class = "card"> <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
+            allParks += `<div class = "card"> 
+            <div class = "card-header">${park.LocationName} | ${park.LocationID.toUpperCase()}</div> 
                 <div class = "card-body"> 
-                <p class = "card-text">
-                ${park.Address}<br>
-                ${park.City}, ${park.State} ${park.ZipCode}</p></div></div><br>`;        
+                    <p class = "card-text">
+                        ${park.Address}<br>
+                        ${park.City}, ${park.State} ${park.ZipCode}
+                    </p>
+                </div>
+            </div>
+        <br>`;        
         }
         
     }
