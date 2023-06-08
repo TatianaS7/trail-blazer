@@ -2,7 +2,7 @@
 
 ## Description
 
-Using HTML, CSS, and JavaScript, I built a website that helps a user find things to do to enjoy the great outdoors. It specializes in finding national parks by location or park type, and provides a selection mountains to choose from. 
+Using HTML, CSS, and JavaScript, I built a website that helps a user find things to do to enjoy the great outdoors. It specializes in finding national parks by location or park type, and provides a selection of mountains to choose from. 
 
 ### This is the Home Page
 ![HomePage](/images/home1.JPG)
